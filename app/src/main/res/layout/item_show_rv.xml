@@ -20,7 +20,7 @@
                 android:scaleType="centerCrop"
                 android:id="@+id/img_item"
                 android:layout_width="210dp"
-                android:layout_height="210dp"
+                android:layout_height="300dp"
                 android:src="@drawable/z" />
 
             <TextView

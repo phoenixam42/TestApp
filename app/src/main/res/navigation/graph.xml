@@ -21,10 +21,14 @@
         android:id="@+id/chooseFragment"
         android:name="phoenix.org.testprojectsomething.view.ChooseFragment"
         android:label="fragment_choose"
-        tools:layout="@layout/fragment_choose" />
+        tools:layout="@layout/fragment_choose" >
+        <argument
+            android:name="imbdID"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="phoenix.org.testprojectsomething.view.detailsFragment"
+        android:name="phoenix.org.testprojectsomething.view.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" />
 </navigation>

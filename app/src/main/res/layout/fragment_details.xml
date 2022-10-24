@@ -1,14 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.detailsFragment">
+    tools:context=".view.DetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:background="#d9d9d9"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_detail_poster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/tset" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_margin="10dp"
+            android:id="@+id/txt_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:text="Game of thrones " />
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_actorsTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/actors"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_actors"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Emilia Clarke, Peter Dinklage, Kit Harington"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_CountryTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/country"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="United States, United Kingdom"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_AwardsTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Awards :"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_Awards"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Won 59 Primetime Emmys. 388 wins &amp; 632 nominations total"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_WriterTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/writer"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_Writer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="David Benioff, D.B. Weiss"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_GenreTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Genre :"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_Genre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Action, Adventure, Drama"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_RateTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/rate"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_Rate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="9.2"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_detail_StoryTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/story"
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_weight="3"
+                android:id="@+id/txt_detail_Story"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia."
+                android:textSize="@dimen/textsize_detail_mainText"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

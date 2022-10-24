@@ -44,8 +44,15 @@ class Repository(val dao: PersonDao) {
                 call: Call<MovieApi.MovieRespond>,
                 response: Response<MovieApi.MovieRespond>
             ) {
-                response.body()?.let { ArrayList.add(it) }
+                response.body()?.let { if (!ArrayList.contains(it))
+                    ArrayList.add(it)
+                }
+
                 _getdataMovie.value = ArrayList
+
+
+
+
                 Log.i("onResponse", "onResponse:${ArrayList} ")
             }
             override fun onFailure(call: Call<MovieApi.MovieRespond>, t: Throwable) {

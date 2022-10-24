@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="there_is_nothing_to_show">There is nothing to show</string>
+    <string name="actors">Actors :</string>
+    <string name="country">Country:</string>
+    <string name="writer">Writer :</string>
+    <string name="story">Story :</string>
+    <string name="rate">Rate :</string>
 </resources>
