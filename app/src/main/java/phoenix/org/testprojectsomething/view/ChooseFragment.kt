@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavHostController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import phoenix.org.testprojectsomething.Application.FavoriteMovie
 import phoenix.org.testprojectsomething.R
 import phoenix.org.testprojectsomething.databinding.FragmentChooseBinding
@@ -43,12 +43,22 @@ class ChooseFragment : Fragment() {
                     "your data saved successfully movie :  $favoriteMovie",
                     Toast.LENGTH_SHORT
                 ).show()
-            }else{
-                Toast.makeText(requireActivity(),"Please fill up",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireActivity(), "Please fill up", Toast.LENGTH_SHORT).show()
             }
             findNavController().navigate(R.id.showFragment, bundle)
         }
         // Inflate the layout for this fragment
         return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val toolbar = binding?.toolbarChooseFragment
+        if (toolbar != null) {
+            NavigationUI.setupWithNavController(toolbar,findNavController())
+            toolbar.title = " "
+
+        }
     }
 }

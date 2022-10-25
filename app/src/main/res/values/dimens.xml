@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textsize_detail_mainText">24sp</dimen>
+    <dimen name="textsize_detail_mainText">20sp</dimen>
     <dimen name="textSize_detail_text_onPoster">16sp</dimen>
+    <dimen name="detailFragment_cardViewMargin">3dp</dimen>
+    <dimen name="detailFragmentCardViewRdius">10dp</dimen>
 </resources>

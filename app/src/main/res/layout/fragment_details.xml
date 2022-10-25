@@ -1,222 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_scrollFlags="scroll|enterAlways"
     tools:context=".view.DetailsFragment">
 
     <LinearLayout
-        android:background="#d9d9d9"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#d9d9d9"
         android:orientation="vertical">
-
-        <FrameLayout
+        <androidx.appcompat.widget.Toolbar
+            app:title="Movie Info"
+            android:id="@+id/toolbar_detailFragment"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize"/>
 
-            <ImageView
-                android:id="@+id/img_detail_poster"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_detail_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    tools:src="@drawable/tset" />
+
+            </FrameLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
+
+            <TextView
+                android:id="@+id/txt_detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                tools:src="@drawable/tset" />
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="Game of thrones " />
 
-        </FrameLayout>
 
-        <TextView
-            android:layout_margin="10dp"
-            android:id="@+id/txt_detail_title"
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            tools:text="Game of thrones " />
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
 
-        <LinearLayout
-            android:layout_margin="10dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/detailFragment_cardViewMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_detail_actorsTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/actors"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detail_actors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="Emilia Clarke, Peter Dinklage, Kit Harington" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius"
+        android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/detailFragment_cardViewMargin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_detail_CountryTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/country"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detail_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="United States, United Kingdom" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
 
-            <TextView
-                android:id="@+id/txt_detail_actorsTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/actors"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_actors"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="Emilia Clarke, Peter Dinklage, Kit Harington"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="10dp"
+                <TextView
+                    android:id="@+id/txt_detail_AwardsTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Awards :"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detail_Awards"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="Won 59 Primetime Emmys. 388 wins &amp; 632 nominations total" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_detail_WriterTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/writer"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detail_Writer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="David Benioff, D.B. Weiss" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_detail_GenreTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Genre :"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detail_Genre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="Action, Adventure, Drama" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
 
-            <TextView
-                android:id="@+id/txt_detail_CountryTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/country"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_country"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="United States, United Kingdom"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="10dp"
+                <TextView
+                    android:id="@+id/txt_detail_RateTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/rate"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_detail_Rate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="9.2" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="@dimen/detailFragment_cardViewMargin"
+            android:elevation="5dp"
+            app:cardCornerRadius="@dimen/detailFragmentCardViewRdius">
 
-            <TextView
-                android:id="@+id/txt_detail_AwardsTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Awards :"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_Awards"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="Won 59 Primetime Emmys. 388 wins &amp; 632 nominations total"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt_detail_StoryTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/story"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txt_detail_WriterTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/writer"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_Writer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="David Benioff, D.B. Weiss"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/txt_detail_Story"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/textsize_detail_mainText"
+                    android:textStyle="normal"
+                    tools:text="Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia." />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/txt_detail_GenreTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Genre :"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_Genre"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="Action, Adventure, Drama"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txt_detail_RateTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/rate"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_Rate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="9.2"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txt_detail_StoryTitle"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/story"
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_weight="3"
-                android:id="@+id/txt_detail_Story"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia."
-                android:textSize="@dimen/textsize_detail_mainText"
-                android:textStyle="normal" />
-
-        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

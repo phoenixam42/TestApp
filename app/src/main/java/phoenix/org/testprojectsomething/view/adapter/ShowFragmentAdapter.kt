@@ -29,7 +29,6 @@ class ShowFragmentAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemShowRvBinding.inflate(LayoutInflater.from(context)))
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = arraylist[position]
         Glide
@@ -42,13 +41,18 @@ class ShowFragmentAdapter(
             /* *//* val intent = Intent(context.applicationContext, DetailsFragment::class.java)
             intent.putParcelableArrayListExtra("filmInfo",arraylist)*//*
             context.startActivity(intent)*/
-            val bundle = Bundle()
-            bundle.putString("test",model.imdbID)
-            Log.i(TAG, "onBindViewHolder: ${bundle}")
-            Log.i(TAG, "onBindViewHolder: ${model.imdbID[position]}")
-            (context as MainActivity).findNavController(R.id.fragment_container)
-                .navigate(R.id.detailsFragment, bundle)
-            onClickListener?.onclick(position)
+            try{ val bundle = Bundle()
+                bundle.putString("imbd",model.imdbID)
+                Log.i(TAG, "onBindViewHolder: ${bundle}")
+                Log.i(TAG, "onBindViewHolder: ${model.imdbID[position]}")
+                (context as MainActivity).findNavController(R.id.fragment_container)
+                    .navigate(R.id.detailsFragment, bundle)
+                onClickListener?.onclick(position)
+                
+            }catch (e:Exception){
+                Log.i(TAG, "onBindViewHolder: $e")
+        }
+           
         }
     }
 

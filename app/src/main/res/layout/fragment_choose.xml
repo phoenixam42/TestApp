@@ -7,6 +7,11 @@
     android:background="@drawable/z"
     android:orientation="vertical"
     tools:context="view.ChooseFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_chooseFragment"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -39,7 +44,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
-                    android:hint="say you favorite movie" />
+                    android:hint="say you name" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
-                    android:hint="say your name" />
+                    android:hint="say favorite movie" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_save_showFragment"

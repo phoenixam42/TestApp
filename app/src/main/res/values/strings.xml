@@ -8,4 +8,5 @@
     <string name="writer">Writer :</string>
     <string name="story">Story :</string>
     <string name="rate">Rate :</string>
+    <string name="chooseFragment_title_toolbar">Choose your favorite movie</string>
 </resources>
