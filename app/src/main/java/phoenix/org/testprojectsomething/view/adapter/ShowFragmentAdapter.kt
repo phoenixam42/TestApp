@@ -14,21 +14,23 @@ import phoenix.org.testprojectsomething.databinding.ItemShowRvBinding
 import phoenix.org.testprojectsomething.network.MovieApi
 import phoenix.org.testprojectsomething.view.MainActivity
 
-class ShowFragmentAdapter(
+open class ShowFragmentAdapter(
     private val arraylist: ArrayList<MovieApi.MovieRespond>,
     private val context: Context
 ) :
     RecyclerView.Adapter<ShowFragmentAdapter.ViewHolder>() {
-    private var onClickListener: OnClickListener? = null
+    lateinit var onClickListener: OnClickListener
 
     class ViewHolder(binding: ItemShowRvBinding) : RecyclerView.ViewHolder(binding.root) {
         val poster = binding.imgItem
         val title = binding.itemTitle
+        val threeDots = binding.itemShowRvThreeDots
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemShowRvBinding.inflate(LayoutInflater.from(context)))
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = arraylist[position]
         Glide
@@ -37,32 +39,34 @@ class ShowFragmentAdapter(
             .centerCrop()
             .into(holder.poster)
         holder.title.text = model.Title
+        holder.threeDots.setOnClickListener {
+            onClickListener.onclick(position, model)
+
+        }
         holder.itemView.setOnClickListener {
-            /* *//* val intent = Intent(context.applicationContext, DetailsFragment::class.java)
-            intent.putParcelableArrayListExtra("filmInfo",arraylist)*//*
-            context.startActivity(intent)*/
-            try{ val bundle = Bundle()
-                bundle.putString("imbd",model.imdbID)
-                Log.i(TAG, "onBindViewHolder: ${bundle}")
-                Log.i(TAG, "onBindViewHolder: ${model.imdbID[position]}")
+            try {
+                val bundle = Bundle()
+                bundle.putString("imbd", model.imdbID)
                 (context as MainActivity).findNavController(R.id.fragment_container)
                     .navigate(R.id.detailsFragment, bundle)
-                onClickListener?.onclick(position)
-                
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 Log.i(TAG, "onBindViewHolder: $e")
-        }
-           
+            }
         }
     }
-
     override fun getItemCount(): Int {
         return arraylist.size
     }
 
+    fun setOnclickListerListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
     interface OnClickListener {
-        fun onclick(position: Int)
+        fun onclick(position: Int, itemselected: MovieApi.MovieRespond)
+
     }
 }
+
 
 

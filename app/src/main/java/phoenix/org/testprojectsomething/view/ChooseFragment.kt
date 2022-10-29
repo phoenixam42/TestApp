@@ -37,7 +37,8 @@ class ChooseFragment : Fragment() {
 
             if (name.isNotEmpty() and favoriteMovie.isNotEmpty()) {
                 model.inset(Person(name = name, favoriteMovie = favoriteMovie))
-                bundle.putString("userName", name)
+                bundle.putString("userNameForRequest", name)
+                bundle.putString("favoriteMovie",favoriteMovie)
                 Toast.makeText(
                     requireActivity().applicationContext,
                     "your data saved successfully movie :  $favoriteMovie",

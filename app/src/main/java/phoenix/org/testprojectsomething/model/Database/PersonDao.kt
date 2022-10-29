@@ -2,6 +2,7 @@ package phoenix.org.testprojectsomething.model.Database
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
+import phoenix.org.testprojectsomething.Application.FavoriteMovie
 
 @Dao
 interface PersonDao {
@@ -14,6 +15,8 @@ interface PersonDao {
     @Query("SELECT * FROM Person_Detail ORDER BY name DESC LIMIT 1")
     fun getLastMemberInfo(): Flow<List<Person>>
 
+    @Query("DELETE FROM Person_Detail WHERE favoriteMovie =:favoriteMovie AND name=:username")
+    suspend fun deleteBaseOnFavoriteMovie(favoriteMovie:String , username: String)
     @Insert
     suspend fun insert(person: Person)
 

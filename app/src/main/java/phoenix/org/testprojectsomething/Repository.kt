@@ -25,9 +25,8 @@ class Repository(val dao: PersonDao) {
     suspend fun insert(person: Person) {
         dao.insert(person)
     }
-    fun getNamedInfo(name : String):Flow<List<Person>> {
-        val customDataByName :Flow<List<Person>> =dao.getPersonisedInfo(name)
-        return customDataByName
+    fun getNamedInfo(name: String): Flow<List<Person>> {
+        return dao.getPersonisedInfo(name)
     }
     suspend fun getDATA(title:String) {
         val api = Retrofit.Builder()
@@ -47,12 +46,7 @@ class Repository(val dao: PersonDao) {
                 response.body()?.let { if (!ArrayList.contains(it))
                     ArrayList.add(it)
                 }
-
                 _getdataMovie.value = ArrayList
-
-
-
-
                 Log.i("onResponse", "onResponse:${ArrayList} ")
             }
             override fun onFailure(call: Call<MovieApi.MovieRespond>, t: Throwable) {
@@ -60,6 +54,9 @@ class Repository(val dao: PersonDao) {
             }
         })
 
+    }
+    suspend fun deleteMovie (favoriteMovie: String,username: String){
+        dao.deleteBaseOnFavoriteMovie(favoriteMovie,username)
     }
 
 }

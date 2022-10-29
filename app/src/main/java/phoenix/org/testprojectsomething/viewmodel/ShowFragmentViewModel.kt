@@ -1,11 +1,10 @@
 package phoenix.org.testprojectsomething.viewmodel
 
 import androidx.lifecycle.*
-import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.launch
+import phoenix.org.testprojectsomething.Application.FavoriteMovie
 import phoenix.org.testprojectsomething.Repository
 import phoenix.org.testprojectsomething.model.Database.Person
-import phoenix.org.testprojectsomething.network.MovieApi
 
 class ShowFragmentViewModel(val repository: Repository) : ViewModel() {
     val allDataMovie = repository.getdataMovie
@@ -16,9 +15,14 @@ class ShowFragmentViewModel(val repository: Repository) : ViewModel() {
                 repository.getDATA(title)
             }
         }
-    fun getNamedInfo(name:String):LiveData<List<Person>>{
-        val namedData: LiveData<List<Person>> = repository.getNamedInfo(name).asLiveData()
-        return namedData
+    fun getNamedInfo(name: String): LiveData<List<Person>> {
+        return repository.getNamedInfo(name).asLiveData()
+    }
+
+     fun deleteFavoriteMovie(favoriteMovie: String,username: String ){
+         viewModelScope.launch {
+             repository.deleteMovie(favoriteMovie,username)
+         }
     }
 
     val getdata: LiveData<List<Person>> = repository.allData.asLiveData()
@@ -27,14 +31,6 @@ class ShowFragmentViewModel(val repository: Repository) : ViewModel() {
             repository.insert(person)
         }
     }
-
-    val movieInfo: MutableLiveData<MovieApi.MovieRespond> =
-        MovieViewModel().movieInfoRespond
-    val movieError: MutableLiveData<Boolean> =
-        MovieViewModel().movieInfoError
-    val movieLoading: MutableLiveData<Boolean> =
-        MovieViewModel().loadMovieInfo
-
 
     class ViewModelFactory(val repository: Repository) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
